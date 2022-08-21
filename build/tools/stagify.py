@@ -59,7 +59,7 @@ def updateAP(rom, rom_makefile, device):
         sys.exit()
 
     lines=lines.replace(rom_makefile, "mosquito_"+device+".mk")
-    lines=lines.replace(rom, "stag")
+    lines=lines.replace(rom, "mosquito")
     try:
         with open("AndroidProducts.mk", "w") as ap:
             ap.write(lines)
@@ -111,13 +111,13 @@ def main():
         debug("Changing dir failed", e)
         sys.exit()
     rom, rom_makefile = getRomDetails(device)
-    if rom == "stag":
+    if rom == "mosquito":
         print("Tree seems to be mosquitoified, trying to fix inconsistencies")
     else:
         print("Mosquitoifying ", rom_makefile)
     updateAP(rom, rom_makefile, device)
     updateMakefile(rom, rom_makefile, device)
-    if rom == "stag":
+    if rom == "mosquito":
         print("Tried fixes on mosquitoified tree")
     else:
         print("Tree for {0} mosquitoified successfully".format(device))
