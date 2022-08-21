@@ -15,6 +15,6 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/stag_arm.mk \
-    $(LOCAL_DIR)/stag_arm64.mk \
-    $(LOCAL_DIR)/stag_x86.mk
+    $(LOCAL_DIR)/mosquito_arm.mk \
+    $(LOCAL_DIR)/mosquito_arm64.mk \
+    $(LOCAL_DIR)/mosquito_x86.mk

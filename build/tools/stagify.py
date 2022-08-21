@@ -58,8 +58,8 @@ def updateAP(rom, rom_makefile, device):
         debug("Failed to update AndroidProducts ", e)
         sys.exit()
 
-    lines=lines.replace(rom_makefile, "stag_"+device+".mk")
-    lines=lines.replace(rom, "stag")
+    lines=lines.replace(rom_makefile, "mosquito_"+device+".mk")
+    lines=lines.replace(rom, "mosquito")
     try:
         with open("AndroidProducts.mk", "w") as ap:
             ap.write(lines)
@@ -69,7 +69,7 @@ def updateAP(rom, rom_makefile, device):
 
 def updateMakefile(rom, rom_makefile, device):
     print(rom, rom_makefile)
-    stag_rom_makefile = "stag_"+device+".mk"
+    stag_rom_makefile = "mosquito_"+device+".mk"
     try:
         shutil.copy2(rom_makefile, stag_rom_makefile)
     except shutil.SameFileError:
@@ -81,7 +81,7 @@ def updateMakefile(rom, rom_makefile, device):
             if "vendor" in lines[i] and rom in lines[i]:
                 lines[i]='$(call inherit-product, vendor/mosquito/main.mk)\n'
             elif rom in lines[i]:
-                lines[i]=lines[i].replace(rom+"_"+device, "stag_"+device)       
+                lines[i]=lines[i].replace(rom+"_"+device, "mosquito_"+device)       
         lines=''.join(lines)
         with open(stag_rom_makefile, "w") as stag_makefile:
             stag_makefile.write(lines)
@@ -111,16 +111,16 @@ def main():
         debug("Changing dir failed", e)
         sys.exit()
     rom, rom_makefile = getRomDetails(device)
-    if rom == "stag":
-        print("Tree seems to be Stagified, trying to fix inconsistencies")
+    if rom == "mosquito":
+        print("Tree seems to be mosquitoified, trying to fix inconsistencies")
     else:
-        print("Stagifying ", rom_makefile)
+        print("Mosquitoifying ", rom_makefile)
     updateAP(rom, rom_makefile, device)
     updateMakefile(rom, rom_makefile, device)
-    if rom == "stag":
-        print("Tried fixes on Stagified tree")
+    if rom == "mosquito":
+        print("Tried fixes on mosquitoified tree")
     else:
-        print("Tree for {0} Stagified successfully".format(device))
+        print("Tree for {0} mosquitoified successfully".format(device))
 
 if __name__ == "__main__":
     main()
