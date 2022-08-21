@@ -952,12 +952,12 @@ alias cmkap='dopush cmka'
 
 function picklist() {
     T=$(gettop)
-    $T/vendor/stag/build/tools/picklist.py $@
+    $T/vendor/mosquito/build/tools/picklist.py $@
 }
 
 function repopick() {
     T=$(gettop)
-    $T/vendor/stag/build/tools/repopick.py $@
+    $T/vendor/mosquito/build/tools/repopick.py $@
 }
 
 function sort-blobs-list() {

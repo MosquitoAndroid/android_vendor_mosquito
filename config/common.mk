@@ -4,30 +4,30 @@ PRODUCT_BRAND := mosquito
 PRODUCT_DEVICE := generic
 
 # version
-include vendor/stag/config/version.mk
+include vendor/mosquito/config/version.mk
 
 # Props
-include vendor/stag/config/props.mk
+include vendor/mosquito/config/props.mk
 
 # Packages
-include vendor/stag/config/packages.mk
+include vendor/mosquito/config/packages.mk
 
 # Sounds
-include vendor/stag/config/sounds.mk
+include vendor/mosquito/config/sounds.mk
 
 # Bootanimation
 TARGET_SCREEN_WIDTH ?= 1080
 TARGET_SCREEN_HEIGHT ?= 1920
 TARGET_SCREEN_RES ?= 1080
 ifeq ($(TARGET_SCREEN_RES), 720)
-	PRODUCT_COPY_FILES += vendor/stag/prebuilt/common/bootanimation/720p.zip:system/media/bootanimation.zip
+	PRODUCT_COPY_FILES += vendor/mosquito/prebuilt/common/bootanimation/720p.zip:system/media/bootanimation.zip
 else ifeq ($(TARGET_SCREEN_RES), 1080)
-	PRODUCT_COPY_FILES += vendor/stag/prebuilt/common/bootanimation/1080p.zip:system/media/bootanimation.zip
+	PRODUCT_COPY_FILES += vendor/mosquito/prebuilt/common/bootanimation/1080p.zip:system/media/bootanimation.zip
 endif
 
 # PixelPropsUtils
 PRODUCT_COPY_FILES += \
-    vendor/stag/prebuilt/common/etc/pixel_2016_exclusive.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/pixel_2016_exclusive.xml
+    vendor/mosquito/prebuilt/common/etc/pixel_2016_exclusive.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/pixel_2016_exclusive.xml
 
 # Signapk/Brotli
 PRODUCT_HOST_PACKAGES += \
@@ -40,15 +40,15 @@ PRODUCT_PACKAGES += \
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
-    vendor/stag/overlay/common \
-    vendor/stag/overlay
+    vendor/mosquito/overlay/common \
+    vendor/mosquito/overlay
 
 PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += \
-    vendor/stag/overlay/common \
-    vendor/stag/overlay/lawnchair
+    vendor/mosquito/overlay/common \
+    vendor/mosquito/overlay/lawnchair
 
 # Copy all custom init rc files
-$(foreach f,$(wildcard vendor/stag/prebuilt/common/etc/init/*.rc),\
+$(foreach f,$(wildcard vendor/mosquito/prebuilt/common/etc/init/*.rc),\
     $(eval PRODUCT_COPY_FILES += $(f):system/etc/init/$(notdir $f)))
 
 # Changelog
@@ -64,15 +64,15 @@ endif
 
 # Backup Tool
 PRODUCT_COPY_FILES += \
-    vendor/stag/prebuilt/common/bin/backuptool.sh:install/bin/backuptool.sh \
-    vendor/stag/prebuilt/common/bin/backuptool.functions:install/bin/backuptool.functions \
-    vendor/stag/prebuilt/common/bin/50-stag.sh:$(TARGET_COPY_OUT_SYSTEM)/addon.d/50-stag.sh \
+    vendor/mosquito/prebuilt/common/bin/backuptool.sh:install/bin/backuptool.sh \
+    vendor/mosquito/prebuilt/common/bin/backuptool.functions:install/bin/backuptool.functions \
+    vendor/mosquito/prebuilt/common/bin/50-stag.sh:$(TARGET_COPY_OUT_SYSTEM)/addon.d/50-stag.sh \
 
 ifneq ($(strip $(AB_OTA_PARTITIONS) $(AB_OTA_POSTINSTALL_CONFIG)),)
 PRODUCT_COPY_FILES += \
-    vendor/stag/prebuilt/common/bin/backuptool_ab.sh:$(TARGET_COPY_OUT_SYSTEM)/bin/backuptool_ab.sh \
-    vendor/stag/prebuilt/common/bin/backuptool_ab.functions:$(TARGET_COPY_OUT_SYSTEM)/bin/backuptool_ab.functions \
-    vendor/stag/prebuilt/common/bin/backuptool_postinstall.sh:$(TARGET_COPY_OUT_SYSTEM)/bin/backuptool_postinstall.sh
+    vendor/mosquito/prebuilt/common/bin/backuptool_ab.sh:$(TARGET_COPY_OUT_SYSTEM)/bin/backuptool_ab.sh \
+    vendor/mosquito/prebuilt/common/bin/backuptool_ab.functions:$(TARGET_COPY_OUT_SYSTEM)/bin/backuptool_ab.functions \
+    vendor/mosquito/prebuilt/common/bin/backuptool_postinstall.sh:$(TARGET_COPY_OUT_SYSTEM)/bin/backuptool_postinstall.sh
 endif
 
 ifneq ($(TARGET_BUILD_VARIANT),user)
@@ -82,16 +82,16 @@ endif
 
 # Enable Android Beam on all targets
 PRODUCT_COPY_FILES += \
-    vendor/stag/prebuilt/common/etc/permissions/android.software.nfc.beam.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.software.nfc.beam.xml
+    vendor/mosquito/prebuilt/common/etc/permissions/android.software.nfc.beam.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.software.nfc.beam.xml
 
 # Power whitelist
 PRODUCT_COPY_FILES += \
-    vendor/stag/prebuilt/common/etc/permissions/stag-power-whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/stag-power-whitelist.xml
+    vendor/mosquito/prebuilt/common/etc/permissions/stag-power-whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/stag-power-whitelist.xml
 
 # Weather client
 PRODUCT_COPY_FILES += \
-    vendor/stag/prebuilt/common/etc/permissions/org.pixelexperience.weather.client.xml:system/etc/permissions/org.pixelexperience.weather.client.xml \
-    vendor/stag/prebuilt/common/etc/default-permissions/org.pixelexperience.weather.client.xml:system/etc/default-permissions/org.pixelexperience.weather.client.xml
+    vendor/mosquito/prebuilt/common/etc/permissions/org.pixelexperience.weather.client.xml:system/etc/permissions/org.pixelexperience.weather.client.xml \
+    vendor/mosquito/prebuilt/common/etc/default-permissions/org.pixelexperience.weather.client.xml:system/etc/default-permissions/org.pixelexperience.weather.client.xml
 
 # Google Assistant
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
@@ -99,18 +99,18 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
 
 # Camera Permissions
 PRODUCT_COPY_FILES += \
-   vendor/stag/prebuilt/common/etc/permissions/privapp-permissions-snap.xml:system/etc/permissions/privapp-permissions-snap.xml \
-   vendor/stag/prebuilt/common/etc/permissions/privapp-permissions-camera2.xml:system/etc/permissions/privapp-permissions-camera2.xml
+   vendor/mosquito/prebuilt/common/etc/permissions/privapp-permissions-snap.xml:system/etc/permissions/privapp-permissions-snap.xml \
+   vendor/mosquito/prebuilt/common/etc/permissions/privapp-permissions-camera2.xml:system/etc/permissions/privapp-permissions-camera2.xml
 
 # Stag Perms
 PRODUCT_COPY_FILES += \
-   vendor/stag/prebuilt/common/etc/permissions/privapp-permissions-stag-system.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-stag.xml \
-   vendor/stag/prebuilt/common/etc/permissions/privapp-permissions-stag-system_ext.xml:system_ext/etc/permissions/privapp-permissions-stag.xml \
-   vendor/stag/prebuilt/common/etc/permissions/privapp-permissions-stag-product.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-stag.xml \
+   vendor/mosquito/prebuilt/common/etc/permissions/privapp-permissions-stag-system.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-stag.xml \
+   vendor/mosquito/prebuilt/common/etc/permissions/privapp-permissions-stag-system_ext.xml:system_ext/etc/permissions/privapp-permissions-stag.xml \
+   vendor/mosquito/prebuilt/common/etc/permissions/privapp-permissions-stag-product.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-stag.xml \
 
 # Clean up packages cache to avoid wrong strings and resources
 PRODUCT_COPY_FILES += \
-    vendor/stag/prebuilt/common/bin/clean_cache.sh:system/bin/clean_cache.sh
+    vendor/mosquito/prebuilt/common/bin/clean_cache.sh:system/bin/clean_cache.sh
 
 # Disable vendor restrictions
 PRODUCT_RESTRICT_VENDOR_FILES := false
@@ -129,7 +129,7 @@ PRODUCT_PACKAGES += \
 
 # Sensitive Phone Numbers list
 PRODUCT_COPY_FILES += \
-    vendor/stag/prebuilt/common/etc/sensitive_pn.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sensitive_pn.xml
+    vendor/mosquito/prebuilt/common/etc/sensitive_pn.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sensitive_pn.xml
 
 # Config
 PRODUCT_PACKAGES += \
@@ -182,7 +182,7 @@ endif
 
 ifeq ($(TARGET_USES_CARRIERSETTINGS),true)
 # CarrierSettings
-$(call inherit-product, vendor/stag/CarrierSettings/config.mk)
+$(call inherit-product, vendor/mosquito/CarrierSettings/config.mk)
 endif
 
 EXTRA_UDFPS_ANIMATIONS ?= false
@@ -194,7 +194,7 @@ endif
 # Quick Tap
 ifeq ($(TARGET_SUPPORTS_QUICK_TAP),true)
 PRODUCT_COPY_FILES += \
-    vendor/stag/prebuilt/common/etc/sysconfig/quick_tap.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/quick_tap.xml
+    vendor/mosquito/prebuilt/common/etc/sysconfig/quick_tap.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/quick_tap.xml
 endif
 
 # Nethunter

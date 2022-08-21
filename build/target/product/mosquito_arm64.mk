@@ -13,10 +13,10 @@
 # limitations under the License.
 
 $(call inherit-product, build/target/product/aosp_arm64.mk)
-$(call inherit-product, vendor/stag/config/common.mk)
+$(call inherit-product, vendor/mosquito/config/common.mk)
 
 # Allow building otatools
 TARGET_FORCE_OTA_PACKAGE := true
 
-PRODUCT_NAME := stag_arm64
+PRODUCT_NAME := mosquito_arm64
 TARGET_NO_KERNEL_OVERRIDE := true

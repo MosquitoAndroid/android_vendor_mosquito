@@ -128,4 +128,4 @@ $(call inherit-product-if-exists, external/google-fonts/lato/fonts.mk)
 $(call inherit-product-if-exists, external/google-fonts/rubik/fonts.mk)
 
 PRODUCT_COPY_FILES += \
-    $(call find-copy-subdir-files,*,vendor/stag/prebuilt/product/fonts,$(TARGET_COPY_OUT_PRODUCT)/fonts)
+    $(call find-copy-subdir-files,*,vendor/mosquito/prebuilt/product/fonts,$(TARGET_COPY_OUT_PRODUCT)/fonts)

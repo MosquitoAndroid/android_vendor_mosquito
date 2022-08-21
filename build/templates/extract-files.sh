@@ -27,7 +27,7 @@ if [[ ! -d "${MY_DIR}" ]]; then MY_DIR="${PWD}"; fi
 
 STAG_ROOT="${MY_DIR}/../../.."
 
-HELPER="${STAG_ROOT}/vendor/stag/build/tools/extract_utils.sh"
+HELPER="${STAG_ROOT}/vendor/mosquito/build/tools/extract_utils.sh"
 if [ ! -f "${HELPER}" ]; then
     echo "Unable to find helper script at ${HELPER}"
     exit 1

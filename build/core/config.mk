@@ -18,9 +18,9 @@ INTERNAL_STAG_PLATFORM_API_FILE := $(TARGET_OUT_COMMON_INTERMEDIATES)/PACKAGING/
 INTERNAL_STAG_PLATFORM_REMOVED_API_FILE := $(TARGET_OUT_COMMON_INTERMEDIATES)/PACKAGING/stag_removed.txt
 FRAMEWORK_STAG_PLATFORM_API_FILE := $(TOPDIR)stag-sdk/api/stag_current.txt
 FRAMEWORK_STAG_PLATFORM_REMOVED_API_FILE := $(TOPDIR)stag-sdk/api/stag_removed.txt
-FRAMEWORK_STAG_API_NEEDS_UPDATE_TEXT := $(TOPDIR)vendor/stag/build/core/apicheck_msg_current.txt
+FRAMEWORK_STAG_API_NEEDS_UPDATE_TEXT := $(TOPDIR)vendor/mosquito/build/core/apicheck_msg_current.txt
 
-BUILD_RRO_SYSTEM_PACKAGE := $(TOPDIR)vendor/stag/build/core/system_rro.mk
+BUILD_RRO_SYSTEM_PACKAGE := $(TOPDIR)vendor/mosquito/build/core/system_rro.mk
 
 # Rules for QCOM targets
-include $(TOPDIR)vendor/stag/build/core/qcom_target.mk
+include $(TOPDIR)vendor/mosquito/build/core/qcom_target.mk
