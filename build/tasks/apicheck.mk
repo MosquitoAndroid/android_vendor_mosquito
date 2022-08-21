@@ -26,7 +26,7 @@ ifeq (,$(filter true, $(WITHOUT_CHECK_API) $(TARGET_BUILD_PDK) $(TARGET_DISABLE_
 droidcore: checkapi-stag
 
 # Validate against previous release platform sdk version api text within prebuilts
-stag_last_released_sdk_version := $(STAG_PLATFORM_SDK_VERSION)
+stag_last_released_sdk_version := $(MOSQUITO_PLATFORM_SDK_VERSION)
 
 .PHONY: check-stag-public-api
 checkapi-stag : check-stag-public-api

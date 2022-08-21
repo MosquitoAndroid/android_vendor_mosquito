@@ -1,19 +1,19 @@
 # StagOS System Version
 ADDITIONAL_SYSTEM_PROPERTIES += \
-    ro.stag.releasetype=$(MOSQUITO_BUILD_TYPE) \
+    ro.mosquito.releasetype=$(MOSQUITO_BUILD_TYPE) \
     ro.modversion=$(MOSQUITO_VERSION) \
 
 # StagOS Platform Display Version
 ADDITIONAL_SYSTEM_PROPERTIES += \
-    ro.stag.display.version=$(STAG_DISPLAY_VERSION)
+    ro.mosquito.display.version=$(MOSQUITO_DISPLAY_VERSION)
 
 # StagOS Platform SDK Version
 ADDITIONAL_SYSTEM_PROPERTIES += \
-    ro.stag.build.version.plat.sdk=$(STAG_PLATFORM_SDK_VERSION)
+    ro.mosquito.build.version.plat.sdk=$(MOSQUITO_PLATFORM_SDK_VERSION)
 
 # StagOS Platform Internal Version
 ADDITIONAL_SYSTEM_PROPERTIES += \
-    ro.stag.build.version.plat.rev=$(STAG_PLATFORM_REV)
+    ro.mosquito.build.version.plat.rev=$(MOSQUITO_PLATFORM_REV)
 
 # Build fingerprint
 ifeq ($(BUILD_FINGERPRINT),)

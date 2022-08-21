@@ -42,18 +42,18 @@ endif
 MOSQUITO_VERSION := MosquitoAndroid-$(CURRENT_DEVICE)-$(MosquitoAndroid_VERSION)-$(MOSQUITO_BUILD_TYPE)-$(MOSQUITO_ZIP_TYPE)-$(shell date -u +%Y%m%d-%H%M)
 
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
- ro.stag.version=$(MOSQUITO_VERSION) \
- ro.stag.releasetype=$(MOSQUITO_BUILD_TYPE) \
+ ro.mosquito.version=$(MOSQUITO_VERSION) \
+ ro.mosquito.releasetype=$(MOSQUITO_BUILD_TYPE) \
  ro.mod.version=$(MosquitoAndroid_VERSION) \
- ro.stag.build.version=$(MOSQUITO_BASE_VERSION) \
- ro.stag.ziptype=$(MOSQUITO_ZIP_TYPE) \
- ro.stag.settings.android_version=$(MOSQUITO_PLATFORM_RELEASE_OR_CODENAME)
+ ro.mosquito.build.version=$(MOSQUITO_BASE_VERSION) \
+ ro.mosquito.ziptype=$(MOSQUITO_ZIP_TYPE) \
+ ro.mosquito.settings.android_version=$(MOSQUITO_PLATFORM_RELEASE_OR_CODENAME)
 
 
 MOSQUITO_DISPLAY_VERSION := MosquitoAndroid-$(MosquitoAndroid_VERSION)-$(MOSQUITO_BUILD_TYPE)
 ROM_FINGERPRINT := MosquitoAndroid/$(MOSQUITO_VERSION)/$(TARGET_PRODUCT_SHORT)/$(shell date -u +%Y%m%d-%H%M)
 
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
- ro.stag.display.version=$(MOSQUITO_DISPLAY_VERSION) \
- ro.stag.fingerprint=$(ROM_FINGERPRINT)
+ ro.mosquito.display.version=$(MOSQUITO_DISPLAY_VERSION) \
+ ro.mosquito.fingerprint=$(ROM_FINGERPRINT)
 
