@@ -28,7 +28,7 @@
   CL_RST="\033[0m"
 endif
 
-STAG_TARGET_PACKAGE := $(PRODUCT_OUT)/$(STAG_VERSION).zip
+STAG_TARGET_PACKAGE := $(PRODUCT_OUT)/$(MOSQUITO_VERSION).zip
 MD5 := prebuilts/build-tools/path/$(HOST_PREBUILT_TAG)/md5sum
 
 .PHONY: bacon stag
@@ -47,7 +47,7 @@ stag: $(INTERNAL_OTA_PACKAGE_TARGET)
 	echo -e ${CL_BLU}"  ___/ // / / ___ / /_/ /_____/ /_/ /___/ / "${CL_RST}
 	echo -e ${CL_MAG}" /____//_/ /_/  |_\____/      \____//____/  "${CL_RST}
 	echo -e ${CL_BLD}${CL_CYN}"===============-Sic Parvis Magna-==============="${CL_RST}
-	echo -e ${CL_BLD}${CL_YLW}"Name: "${CL_YLW} $(STAG_VERSION).zip${CL_RST}
+	echo -e ${CL_BLD}${CL_YLW}"Name: "${CL_YLW} $(MOSQUITO_VERSION).zip${CL_RST}
 	echo -e ${CL_BLD}${CL_YLW}"MD5: "${CL_YLW}" `cat $(STAG_TARGET_PACKAGE).md5sum | awk '{print $$1}' `"${CL_RST}
 	echo -e ${CL_BLD}${CL_YLW}"Size:"${CL_YLW}" `du -sh $(STAG_TARGET_PACKAGE) | awk '{print $$1}' `"${CL_RST}
 	echo -e ${CL_BLD}${CL_CYN}"====================================================="${CL_RST}

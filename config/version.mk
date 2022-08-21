@@ -13,47 +13,47 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-StagOS_VERSION = 12.1
-STAG_PLATFORM_RELEASE_OR_CODENAME := 12L
+MosquitoAndroid_VERSION = 12.1
+MOSQUITO_PLATFORM_RELEASE_OR_CODENAME := 12L
 
-STAG_BASE_VERSION = $(StagOS_VERSION)
+MOSQUITO_BASE_VERSION = $(MosquitoAndroid_VERSION)
 
 CURRENT_DEVICE=$(shell echo "$(TARGET_PRODUCT)" | cut -d'_' -f 2,3)
 TARGET_PRODUCT_SHORT := $(subst aosp_,,$(CUSTOM_BUILD))
 
 ifeq ($(BUILD_TYPE),OFFICIAL)
       IS_OFFICIAL=true
-      STAG_BUILD_TYPE := OFFICIAL
+      MOSQUITO_BUILD_TYPE := OFFICIAL
 else
 ifeq ($(BUILD_TYPE),TEST)
-   STAG_BUILD_TYPE := TEST
+   MOSQUITO_BUILD_TYPE := TEST
 else
-   STAG_BUILD_TYPE := UNOFFICIAL
+   MOSQUITO_BUILD_TYPE := UNOFFICIAL
 endif
 endif
 
-STAG_ZIP_TYPE = Pristine
+MOSQUITO_ZIP_TYPE = Pristine
 
 # GApps
 ifeq ($(WITH_GAPPS),true)
-STAG_ZIP_TYPE := GApps
+MOSQUITO_ZIP_TYPE := GApps
 endif
 
-STAG_VERSION := StagOS-$(CURRENT_DEVICE)-$(StagOS_VERSION)-$(STAG_BUILD_TYPE)-$(STAG_ZIP_TYPE)-$(shell date -u +%Y%m%d-%H%M)
+MOSQUITO_VERSION := MosquitoAndroid-$(CURRENT_DEVICE)-$(MosquitoAndroid_VERSION)-$(MOSQUITO_BUILD_TYPE)-$(MOSQUITO_ZIP_TYPE)-$(shell date -u +%Y%m%d-%H%M)
 
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
- ro.stag.version=$(STAG_VERSION) \
- ro.stag.releasetype=$(STAG_BUILD_TYPE) \
- ro.mod.version=$(StagOS_VERSION) \
- ro.stag.build.version=$(STAG_BASE_VERSION) \
- ro.stag.ziptype=$(STAG_ZIP_TYPE) \
- ro.stag.settings.android_version=$(STAG_PLATFORM_RELEASE_OR_CODENAME)
+ ro.stag.version=$(MOSQUITO_VERSION) \
+ ro.stag.releasetype=$(MOSQUITO_BUILD_TYPE) \
+ ro.mod.version=$(MosquitoAndroid_VERSION) \
+ ro.stag.build.version=$(MOSQUITO_BASE_VERSION) \
+ ro.stag.ziptype=$(MOSQUITO_ZIP_TYPE) \
+ ro.stag.settings.android_version=$(MOSQUITO_PLATFORM_RELEASE_OR_CODENAME)
 
 
-STAG_DISPLAY_VERSION := StagOS-$(StagOS_VERSION)-$(STAG_BUILD_TYPE)
-ROM_FINGERPRINT := StagOS/$(STAG_VERSION)/$(TARGET_PRODUCT_SHORT)/$(shell date -u +%Y%m%d-%H%M)
+MOSQUITO_DISPLAY_VERSION := MosquitoAndroid-$(MosquitoAndroid_VERSION)-$(MOSQUITO_BUILD_TYPE)
+ROM_FINGERPRINT := MosquitoAndroid/$(MOSQUITO_VERSION)/$(TARGET_PRODUCT_SHORT)/$(shell date -u +%Y%m%d-%H%M)
 
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
- ro.stag.display.version=$(STAG_DISPLAY_VERSION) \
+ ro.stag.display.version=$(MOSQUITO_DISPLAY_VERSION) \
  ro.stag.fingerprint=$(ROM_FINGERPRINT)
 

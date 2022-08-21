@@ -1,7 +1,7 @@
 # StagOS System Version
 ADDITIONAL_SYSTEM_PROPERTIES += \
-    ro.stag.releasetype=$(STAG_BUILD_TYPE) \
-    ro.modversion=$(STAG_VERSION) \
+    ro.stag.releasetype=$(MOSQUITO_BUILD_TYPE) \
+    ro.modversion=$(MOSQUITO_VERSION) \
 
 # StagOS Platform Display Version
 ADDITIONAL_SYSTEM_PROPERTIES += \

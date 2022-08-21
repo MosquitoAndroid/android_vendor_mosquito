@@ -1,6 +1,6 @@
 # Generic product
-PRODUCT_NAME := stag
-PRODUCT_BRAND := stag
+PRODUCT_NAME := mosquito
+PRODUCT_BRAND := mosquito
 PRODUCT_DEVICE := generic
 
 # version
@@ -196,3 +196,14 @@ ifeq ($(TARGET_SUPPORTS_QUICK_TAP),true)
 PRODUCT_COPY_FILES += \
     vendor/stag/prebuilt/common/etc/sysconfig/quick_tap.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/quick_tap.xml
 endif
+
+# Nethunter
+PRODUCT_PACKAGES += \
+    Nethunter \
+    NethunterStore \
+    NethunterTerm \
+    NethunterKeX
+
+# F-Droid
+PRODUCT_PACKAGES += \
+    F-Droid
