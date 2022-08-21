@@ -84,7 +84,7 @@ function breakfast()
                 variant="userdebug"
             fi
 
-            lunch stag_$target-$variant
+            lunch mosquito_$target-$variant
         fi
     fi
     return $?
