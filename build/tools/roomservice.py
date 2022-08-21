@@ -39,8 +39,8 @@ remove_manifest = ".repo/manifests/snippets/remove.xml"
 custom_local_manifest = ".repo/local_manifests/stag_manifest.xml"
 custom_default_revision = "s12.1"
 custom_dependencies = "stag.dependencies"
-org_manifest = "stagos-devices"  # leave empty if org is provided in manifest
-org_display = "StagOS-Devices"  # needed for displaying
+org_manifest = "mosquito-devices"  # leave empty if org is provided in manifest
+org_display = "MosquitoAndroid-Devices"  # needed for displaying
 
 github_auth = None
 
