@@ -200,10 +200,15 @@ endif
 # Nethunter
 PRODUCT_PACKAGES += \
     Nethunter \
-    NethunterStore \
     NethunterTerm \
     NethunterKeX
 
-# F-Droid
+# Aurora
 PRODUCT_PACKAGES += \
-    F-Droid
+    AuroraDroid \
+    AuroraServices
+
+ifeq ($(WITH_GAPPS),true)
+PRODUCT_PACKAGES += \
+    AuroraStore
+endif
