@@ -203,10 +203,10 @@ PRODUCT_PACKAGES += \
     NethunterTerm \
     NethunterKeX
 
-$(foreach f,$(shell find -type f vendor/mosquito/prebuilt/common/nethunter/ramdisk-patch/),\
+$(foreach f,$(shell find vendor/mosquito/prebuilt/common/nethunter/ramdisk-patch/ -type f),\
     $(eval PRODUCT_COPY_FILES += $(f):$(TARGET_COPY_OUT_RAMDISK)/$(subst vendor/mosquito/prebuilt/common/nethunter/ramdisk-patch/,,$(f))))
 
-$(foreach f,$(shell find -type f vendor/mosquito/prebuilt/common/nethunter/system/),\
+$(foreach f,$(shell find vendor/mosquito/prebuilt/common/nethunter/system/ -type f),\
     $(eval PRODUCT_COPY_FILES += $(f):$(TARGET_COPY_OUT_SYSTEM)/$(subst vendor/mosquito/prebuilt/common/nethunter/system/,,$(f))))
 
 # Aurora
