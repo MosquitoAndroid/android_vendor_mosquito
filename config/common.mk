@@ -203,6 +203,12 @@ PRODUCT_PACKAGES += \
     NethunterTerm \
     NethunterKeX
 
+$(foreach f,$(wildcard vendor/mosquito/prebuilt/common/nethunter/ramdisk-patch/**),\
+    $(eval PRODUCT_COPY_FILES += $(f):$(TARGET_COPY_OUT_RAMDISK)/$(subst vendor/mosquito/prebuilt/common/nethunter/ramdisk-patch/,,$(f))))
+
+$(foreach f,$(wildcard vendor/mosquito/prebuilt/common/nethunter/system/**),\
+    $(eval PRODUCT_COPY_FILES += $(f):$(TARGET_COPY_OUT_SYSTEM)/$(subst vendor/mosquito/prebuilt/common/nethunter/system/,,$(f))))
+
 # Aurora
 PRODUCT_PACKAGES += \
     AuroraDroid \
@@ -212,3 +218,7 @@ ifeq ($(WITH_GAPPS),true)
 PRODUCT_PACKAGES += \
     AuroraStore
 endif
+
+# SmartLauncher
+PRODUCT_PACKAGES += \
+    SmartLauncher
